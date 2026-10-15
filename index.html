@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazen | Personal Website</title>
+
+    <!-- Fonts: Manrope (headings), Inter (body), Cairo (Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Lora:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <!-- Site styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header>
+
+        <a href="#home" class="logo">MAZEN</a>
+
+        <!-- Mobile menu button (visible on small screens only) -->
+        <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="navigation" id="nav" aria-label="Main navigation">
+
+            <a href="#about">About Me</a>
+
+            <!-- Programming dropdown -->
+            <div class="dropdown">
+                <a href="#programming">Programming</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#programming-languages">Programming Languages</a></li>
+                    <li><a href="#web">Web Development</a></li>
+                </ul>
+            </div>
+
+            <a href="#projects">Projects</a>
+
+            <!-- Cyber Security dropdown (with nested submenu) -->
+            <div class="dropdown">
+                <a href="#cybersecurity">Cyber Security</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#Fundamentals">Fundamentals</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#Network">Networking</a></li>
+                            <li><a href="#Linux">Linux</a></li>
+                            <li><a href="#operating-systems">Operating Systems</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ==================== HERO ==================== -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <h1>Hi, I'm Mazen</h1>
+                <p class="role">Learning Web Development &amp; Cyber Security</p>
+                <p class="lead">
+                    I'm working on myself and building my skills step by step,
+                    aiming to grow into a professional in programming and cyber security.
+                </p>
+
+                <!-- Call-to-action buttons -->
+                <div class="actions">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-ghost">Contact Me</a>
+                </div>
+
+                <!-- Social links (replace "#" with your real links) -->
+                <div class="social-links">
+                    <a href="https://github.com/mazonanabil-cpu" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mazen-motawe-31765b400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://substack.com/@mazenmotawe124" aria-label="Substack"><i class="fa-brands fa-substack"></i></a>
+                    <a href="https://www.instagram.com/ethuu123/?hl=en#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ==================== ABOUT ==================== -->
+        <section class="light" id="about">
+            <div class="wrap">
+                <h2>About Me</h2>
+                <p>Write a short bio here: your interests, your vision and goals, and how you learn and grow.</p>
+            </div>
+        </section>
+
+
+        <!-- ==================== PROGRAMMING ==================== -->
+        <section class="white" id="programming">
+            <div class="wrap">
+                <h2>Programming</h2>
+
+                <!-- Programming Languages -->
+                <div class="block" id="programming-languages">
+                    <h3>Programming Languages</h3>
+                    <div class="grid">
+
+                        <article class="card">
+                            <h4>Python</h4>
+                            <span class="tag">Learned the basics</span>
+                            <p>Topics I've studied will be listed here.</p>
+                        </article>
+
+                        <article class="card">
+                            <h4>C++</h4>
+                            <span class="tag tag-plan">Planned</span>
+                            <p>Not started yet. It's part of my future learning plan.</p>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="block" id="web">
+                    <h3>Web Development</h3>
+                    <div class="grid">
+
+                        <article class="card">
+                            <h4>Frontend</h4>
+                            <span class="tag">Learning &amp; building</span>
+                        </article>
+
+                        <article class="card">
+                            <h4>Backend</h4>
+                            <span class="tag">Learning &amp; building</span>
+                        </article>
+
+                        <article class="card">
+                            <h4>Full Stack</h4>
+                            <span class="tag">Learning &amp; building</span>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PROJECTS ==================== -->
+        <section class="light" id="projects">
+            <div class="wrap">
+                <h2>Projects</h2>
+                <div class="grid">
+
+                    <article class="card">
+                        <h4>AI Security Scanner</h4>
+                        <span class="tag">In development</span>
+                        <p>A competition project. Description and technologies will be added here.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== CYBER SECURITY ==================== -->
+        <section class="dark" id="cybersecurity">
+            <div class="wrap">
+                <h2>Cyber Security</h2>
+                <p>This documents my learning journey, not completed professional experience.</p>
+
+                <div class="block" id="Fundamentals">
+                    <h3>Fundamentals</h3>
+                    <div class="grid">
+
+                        <article class="card" id="Network">
+                            <h4>Networking</h4>
+                            <span class="tag">Learning</span>
+                        </article>
+
+                        <article class="card" id="Linux">
+                            <h4>Linux</h4>
+                            <span class="tag">Learning</span>
+                        </article>
+
+                        <article class="card" id="operating-systems">
+                            <h4>Operating Systems</h4>
+                            <span class="tag">Learning</span>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CONTACT ==================== -->
+        <section class="light" id="contact">
+            <div class="wrap">
+                <h2>Contact</h2>
+                <p>
+                    <a class="link" href="https://www.linkedin.com/in/mazen-motawe-31765b400">LinkedIn</a> ·
+                    <a class="link" href="#">GitHub</a> ·
+                    <a class="link" href="mailto:your@email.com">your@email.com</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <p>© <span id="year"></span> Mazen</p>
+    </footer>
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>

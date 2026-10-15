@@ -1,0 +1,462 @@
+/* ==========================================================
+   MAZEN — Personal Website
+   Table of contents:
+   1. Variables (colors, fonts, sizes)
+   2. Reset & base
+   3. Header & navigation
+   4. Hero
+   5. Sections & content
+   6. Cards & tags
+   7. Footer
+   8. Mobile (max-width: 900px)
+   ========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES — edit colors / fonts here
+   ========================================================== */
+:root {
+  /* Colors */
+  --navy:     #081220;   /* main dark background */
+  --surface:  #101E32;   /* dark cards / menus */
+  --blue:     #3382F6;   /* buttons, links */
+  --cyan:     #22D3EE;   /* icons, small accents */
+  --bg:       #F4F7FB;   /* light background */
+  --white:    #FFFFFF;
+  --text:     #172033;   /* text on light */
+  --muted:    #64748B;   /* secondary text */
+  --text-d:   #E5E7EB;   /* text on dark */
+  --border:   #DCE3EC;   /* borders (light) */
+  --border-d: #26364A;   /* borders (dark) */
+
+  /* Fonts */
+  --head: "Playfair Display", Georgia, serif;   /* العناوين */
+  --en:   "Lora", Georgia, serif;               /* النصوص */
+  --ar:   "Cairo", system-ui, sans-serif;
+
+  /* Sizes */
+  --header-h: 68px;
+}
+
+
+/* ==========================================================
+   2. RESET & BASE
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* Keep section titles visible below the fixed header */
+[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  font-family: var(--en);
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Visible keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, .logo {
+  font-family: var(--head);
+  font-weight: 700;
+}
+
+h2 { font-size: 1.9rem; margin-bottom: 16px; }
+h3 { font-size: 1.3rem; margin: 36px 0 14px; }
+h4 { font-size: 1.05rem; }
+
+/* Arabic text uses Cairo */
+:lang(ar) {
+  font-family: var(--ar);
+}
+
+
+/* ==========================================================
+   3. HEADER & NAVIGATION
+   ========================================================== */
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--header-h);
+  padding-inline: 6vw;
+  background: var(--navy);
+  border-block-end: 1px solid var(--border-d);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+/* --- Main menu --- */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navigation a {
+  display: block;
+  padding: 8px 14px;
+  color: var(--text-d);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  color: var(--cyan);
+}
+
+/* --- Dropdown menus --- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  min-width: 210px;
+  list-style: none;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border-d);
+  border-radius: 10px;
+
+  /* hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: 0.2s;
+}
+
+/* Show on hover or keyboard focus */
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu,
+.dropdown-menu li:hover > .dropdown-menu,
+.dropdown-menu li:focus-within > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+
+.dropdown-menu a:hover {
+  background: var(--navy);
+}
+
+/* Nested submenu opens to the side */
+.dropdown-menu .dropdown-menu {
+  inset-block-start: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 100%;
+}
+
+/* Small arrow on items that have a submenu */
+.dropdown-menu li:has(> .dropdown-menu) > a::before {
+  content: "‹ ";
+}
+
+/* --- Mobile menu button (hidden on desktop) --- */
+.menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: 1px solid var(--border-d);
+  border-radius: 8px;
+  color: var(--text-d);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+
+/* ==========================================================
+   4. HERO
+   ========================================================== */
+  .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + 40px) 8vw 60px;
+  background: var(--navy) url(Background/Background.jpg) 70% center / cover no-repeat;
+}
+
+.hero-content {
+  max-width: 540px;
+  color: var(--text-d);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.role {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--cyan);
+}
+
+.lead {
+  max-width: 46ch;
+  margin-bottom: 28px;
+  color: #b8c2d1;
+}
+
+/* --- Buttons --- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6em 1.6em;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #2468d1;
+  border-color: #2468d1;
+}
+
+.btn-ghost {
+  color: var(--text-d);
+}
+
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* --- Social icons --- */
+.social-links {
+  display: flex;
+  gap: 20px;
+  font-size: 1.4rem;
+}
+
+.social-links a {
+  color: var(--text-d);
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--cyan);
+}
+
+
+
+/* ==========================================================
+   5. SECTIONS & CONTENT
+   ========================================================== */
+section:not(.hero) {
+  padding: 90px 6vw;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+/* Section backgrounds */
+.light { background: var(--bg); }
+.white { background: var(--white); }
+
+.dark {
+  background: var(--navy);
+  color: var(--text-d);
+}
+
+.dark p {
+  color: #b8c2d1;
+}
+
+.link {
+  color: var(--blue);
+  font-weight: 500;
+}
+
+
+/* ==========================================================
+   6. CARDS & TAGS
+   ========================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.card p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.dark .card {
+  background: var(--surface);
+  border-color: var(--border-d);
+  color: var(--text-d);
+}
+
+/* Status labels */
+.tag {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1d5fc4;
+  background: #e6f0fe;
+  border-radius: 999px;
+}
+
+.tag-plan {
+  color: var(--muted);
+  background: #eef1f5;
+}
+
+.dark .tag {
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.1);
+}
+
+
+/* ==========================================================
+   7. FOOTER
+   ========================================================== */
+footer {
+  padding: 24px;
+  background: var(--navy);
+  color: var(--muted);
+  text-align: center;
+}
+
+
+/* ==========================================================
+   8. MOBILE (max-width: 900px)
+   ========================================================== */
+@media (max-width: 900px) {
+
+  /* Show the menu button, turn the nav into a dropdown panel */
+  .menu-btn {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    position: absolute;
+    inset: var(--header-h) 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
+    padding: 12px 6vw 20px;
+    background: var(--navy);
+    border-block-end: 1px solid var(--border-d);
+  }
+
+  .navigation.open {
+    display: flex;
+  }
+
+  /* Submenus are always visible, indented */
+  .dropdown-menu {
+    position: static;
+    min-width: 0;
+    padding: 0 0 0 16px;
+    background: none;
+    border: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .dropdown-menu .dropdown-menu {
+    padding-inline-start: 16px;
+  }
+
+  .dropdown-menu li:has(> .dropdown-menu) > a::before {
+    content: none;
+  }
+
+  /* Hero: photo on top, text centered below */
+  .hero {
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding-inline: 6vw;
+    text-align: center;
+  }
+
+  .avatar {
+    width: min(300px, 70vw);
+  }
+
+  .actions,
+  .social-links {
+    justify-content: center;
+  }
+
+  .lead {
+    margin-inline: auto;
+  }
+}
