@@ -216,7 +216,7 @@ header {
   display: flex;
   align-items: center;
   padding: calc(var(--header-h) + 40px) 8vw 60px;
-  background: var(--navy) url(Background/Background.jpg) 70% center / cover no-repeat;
+  background: var(--navy) url(Background.jpg) 70% center / cover no-repeat;
 }
 
 .hero-content {
