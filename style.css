@@ -439,14 +439,14 @@ footer {
     content: none;
   }
 
-  /* Hero: photo on top, text centered below */
-  .hero {
-    flex-direction: column-reverse;
-    justify-content: center;
-    padding-inline: 6vw;
-    text-align: center;
+  /* Hero: darker overlay so text stays readable over the photo */
+ .hero {
+  padding-inline: 6vw;
+  background-image:
+    linear-gradient(rgba(8, 18, 32, 0.72), rgba(8, 18, 32, 0.72)),
+    url(Background.jpg);
+  background-position: center, 75% center;
   }
-
   .avatar {
     width: min(300px, 70vw);
   }
